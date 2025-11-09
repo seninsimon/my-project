@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import bcrypt from 'bcryptjs';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto } from './dto/register-user.dto';
 import { User, UserDocument } from './schemas/user.schema';
 
 @Injectable()
@@ -19,7 +19,6 @@ export class UsersService {
       const { password, ...result } = createdUser.toObject();
       return result;
     } catch (error) {
-        console.log("error",error)
         throw error
     }
   }
